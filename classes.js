@@ -1,15 +1,19 @@
+'use strict';
 /**
  * Objects and Classes
  */
+
+var getFullName = function() {
+  return `${this.firstName} ${this.lastName}`;
+};
+
 var homer = {
   firstName: 'Homer',
   lastName: 'Simpson',
 
   age: 36,
 
-  fullName: function() {
-    return `${homer.firstName} ${homer.lastName}`;
-  },
+  fullName: getFullName,
 };
 
 var marge = {
@@ -18,7 +22,9 @@ var marge = {
 
   age: 36,
 
-  fullName: function() {
-    return `${marge.firstName} ${marge.lastName}`;
-  },
+  fullName: getFullName,
 };
+
+console.log(marge.fullName());
+marge.lastName = 'Simpson';
+console.log(marge.fullName());
