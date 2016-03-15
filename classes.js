@@ -59,7 +59,10 @@ class Person {
   constructor(firstName, lastName, age) {
     this.firstName = firstName;
     this.lastName = lastName;
-    this.age = age;
+
+    this.interrogate = function() {
+      return age;
+    }
   }
 
   fullName() {
@@ -71,6 +74,21 @@ var maggie = new Person('Maggie', 'Simpson', 1);
 console.log(maggie.firstName);
 console.log(maggie.lastName);
 console.log(maggie.fullName());
+console.log(maggie.age);
 
 console.log('Is Maggie a Person?', maggie instanceof Person);
 console.log('Is Bart a Person?', bart instanceof Person);
+
+class Simpson extends Person {
+  constructor(firstName, age) {
+    super(firstName, 'Simpson', age); // Runs the constructor for Person
+  }
+}
+
+var lisa = new Simpson('Lisa', 8);
+
+console.log(lisa.fullName());
+console.log(lisa.interrogate());
+console.log('Is Lisa a Person?', lisa instanceof Person);
+console.log('Is Lisa a Simpson?', lisa instanceof Simpson);
+console.log('Is Maggie a Simpson?', maggie instanceof Simpson);
