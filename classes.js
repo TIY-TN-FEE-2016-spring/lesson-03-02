@@ -7,14 +7,18 @@ var homer = {
 
   age: 36,
 
-  fullName: 'Homer Simpson',
+  fullName: function() {
+    return `${homer.firstName} ${homer.lastName}`;
+  },
 };
 
 var marge = {
   firstName: 'Marge',
-  lastName: 'Simpson',
+  lastName: 'Flanders',
 
   age: 36,
 
-  fullName: 'Marge Simpson',
+  fullName: function() {
+    return `${marge.firstName} ${marge.lastName}`;
+  },
 };
