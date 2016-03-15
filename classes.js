@@ -28,3 +28,4 @@ var marge = {
 console.log(marge.fullName());
 marge.lastName = 'Simpson';
 console.log(marge.fullName());
+console.log(marge.age); // Public Information
