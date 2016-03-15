@@ -1,6 +1,6 @@
 'use strict';
 /**
- * Objects and Classes
+ * Objects
  */
 
 var getFullName = function() {
@@ -38,7 +38,9 @@ var createPerson = function(firstName, lastName, age) {
       return age;
     },
 
-    fullName: getFullName,
+    fullName() {
+      return `${this.firstName} ${this.lastName}`;
+    },
   };
 }
 
@@ -48,3 +50,27 @@ console.log(bart.fullName());
 console.log(bart);
 console.log(bart.age); // This has been protected
 console.log(bart.interrogate());
+
+/**
+ * Classes
+ */
+
+class Person {
+  constructor(firstName, lastName, age) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+  }
+
+  fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+}
+
+var maggie = new Person('Maggie', 'Simpson', 1);
+console.log(maggie.firstName);
+console.log(maggie.lastName);
+console.log(maggie.fullName());
+
+console.log('Is Maggie a Person?', maggie instanceof Person);
+console.log('Is Bart a Person?', bart instanceof Person);
